@@ -10,21 +10,29 @@ class GameCharacter {
     public void attack() {
         System.out.println(name + " is attacking!");
     }
+}
 
-    public void saveToFile() {
-        System.out.println("Saving character to file...");
+class CharacterRepository {
+    public void save(GameCharacter character) {
+        System.out.println("Saving " + character.name + " to file...");
     }
+}
 
-    public void render() {
-        System.out.println("Rendering character on screen...");
+class CharacterRenderer {
+    public void render(GameCharacter character) {
+        System.out.println("Rendering " + character.name + " on screen...");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         GameCharacter c = new GameCharacter("Knight", 100);
+
+        CharacterRepository repo = new CharacterRepository();
+        CharacterRenderer renderer = new CharacterRenderer();
+
         c.attack();
-        c.saveToFile();
-        c.render();
+        repo.save(c);
+        renderer.render(c);
     }
 }
