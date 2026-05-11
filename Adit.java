@@ -27,7 +27,7 @@ class LoginService {
     }
 }
 
-public class Main {
+public class Adit {
     public static void main(String[] args) {
 
         LoginService service = new LoginService();
