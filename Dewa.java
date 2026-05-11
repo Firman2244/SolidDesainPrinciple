@@ -24,7 +24,7 @@ class CharacterRenderer {
     }
 }
 
-public class Main {
+public class Dewa {
     public static void main(String[] args) {
         GameCharacter c = new GameCharacter("Knight", 100);
 
