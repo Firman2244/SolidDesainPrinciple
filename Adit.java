@@ -1,27 +1,39 @@
-class LoginService {
+interface LoginProvider {
+    void login();
+}
 
-    public void login(String type) {
-
-        if (type.equals("google")) {
-            System.out.println("Login with Google");
-        }
-
-        else if (type.equals("facebook")) {
-            System.out.println("Login with Facebook");
-        }
-
-        else if (type.equals("github")) {
-            System.out.println("Login with Github");
-        }
-
+class GoogleLogin implements LoginProvider {
+    public void login() {
+        System.out.println("Login with Google");
     }
 }
 
-public class Adit {
+class FacebookLogin implements LoginProvider {
+    public void login() {
+        System.out.println("Login with Facebook");
+    }
+}
+
+class GithubLogin implements LoginProvider {
+    public void login() {
+        System.out.println("Login with Github");
+    }
+}
+
+class LoginService {
+
+    public void login(LoginProvider provider) {
+        provider.login();
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
 
         LoginService service = new LoginService();
 
-        service.login("google");
+        service.login(new GoogleLogin());
+        service.login(new FacebookLogin());
+        service.login(new GithubLogin());
     }
 }
